@@ -1,7 +1,13 @@
+import Header from "./pages/header/header";
+
 function App() {
+
   return (
     <>
-      <h1 className="text-[red]"> nika</h1>
+      <div>
+      <Header/>
+      </div>
+  
     </>
   );
 }
