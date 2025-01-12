@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import alias from "alias"
+
 
 export default {
     darkMode: ["class"],
