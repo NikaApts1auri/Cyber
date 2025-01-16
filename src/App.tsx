@@ -11,11 +11,15 @@ import LoginView from "./pages/login/view";
 import RegistrationView from "./pages/registration/view";
 import ProductDetailsView from "./pages/productDetails/view";
 import ProductsView from "./pages/products/view";
+import AboutView from "./pages/about/view";
+import ContactView from "./pages/contact/view";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <>
+<QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
           {/* Public routes */}
@@ -60,6 +64,22 @@ function App() {
                 </Suspense>
               }
             />
+            <Route
+              path="about"
+              element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <AboutView />
+                </Suspense>
+              }
+            />
+             <Route
+              path="contact"
+              element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <ContactView />
+                </Suspense>
+              }
+            />
           </Route>
 
           {/* Protected routes */}
@@ -80,7 +100,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </>
+      </QueryClientProvider>
   );
 }
 
