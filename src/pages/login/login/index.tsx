@@ -41,45 +41,45 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="mt-12 flex items-center justify-center font-anek-devanagari sm:mt-28">
-      <form className="w-full max-w-md" onSubmit={handleSubmit(onSubmit)}>
-        <Card className={`flex flex-col gap-3 p-5 ${mobileStylesForForms}`}>
-          <CardHeader>
-            <CardTitle className="mt-2 self-start text-3xl sm:self-center sm:text-xl">
-              Login
-            </CardTitle>
-          </CardHeader>
-
-          <CardContent className="sm:pb-0">
+    <div className="mt-60 flex items-center justify-center font-anek-devanagari sm:mt-45">
+    <form className="w-full max-w-xl" onSubmit={handleSubmit(onSubmit)}>
+      <Card className={`flex flex-col gap-5 p-8 ${mobileStylesForForms}`}>
+        <CardHeader>
+          <CardTitle className="mt-3 self-start text-5xl sm:self-center sm:text-2xl">
+            Login
+          </CardTitle>
+        </CardHeader>
+  
+        <CardContent className="sm:pb-0">
           <FormInput
-  label="Username or Email"
-  type="text"
-  placeholder="Username or Email"
-  register={register("identifier")}
-  error={errors.identifier?.message}
-/>
-
-         <PasswordField
-  label="Password"
-  register={register}
-  name="password" 
-  error={errors.password?.message}
-  showSignUpLink={true}
-/>
-
-          </CardContent>
-
-          <Button
-            className="w-[87%] self-center py-6 sm:py-3"
-            variant="default"
-            type="submit"
-            disabled={isLoading}
-          >
-            Log In
-          </Button>
-        </Card>
-      </form>
-    </div>
+            label="Username or Email"
+            type="text"
+            placeholder="Username or Email"
+            register={register("identifier")}
+            error={errors.identifier?.message}
+          />
+  
+          <PasswordField
+            label="Password"
+            register={register}
+            name="password"
+            error={errors.password?.message}
+            showSignUpLink={true}
+          />
+        </CardContent>
+  
+        <Button
+          className="w-[90%] self-center py-9 sm:py-5"
+          variant="default"
+          type="submit"
+          disabled={isLoading}
+        >
+          Log In
+        </Button>
+      </Card>
+    </form>
+  </div>
+  
   );
 };
 

@@ -30,7 +30,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
       />
       {error && <p className="text-red-500 text-xs">{error}</p>}
       {showSignUpLink && (
-        <a href="/signup" className="text-blue-500 text-sm">
+        <a href="/registration" className="text-blue-500 text-sm">
           Sign Up
         </a>
       )}
