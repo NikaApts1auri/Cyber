@@ -1,5 +1,6 @@
+// hooks/useAuth.ts
 import { useEffect } from 'react';
-import { useLogin } from './useLogin';
+import { useRefreshToken } from './useRefreshToken';
 
 const isTokenExpired = (token: string) => {
   const payload = JSON.parse(atob(token.split('.')[1]));
@@ -7,7 +8,7 @@ const isTokenExpired = (token: string) => {
 };
 
 export const useAuth = () => {
-  const { refreshUserToken } = useLogin();
+  const { refreshUserToken } = useRefreshToken();
 
   useEffect(() => {
     const refreshToken = localStorage.getItem('refreshToken');

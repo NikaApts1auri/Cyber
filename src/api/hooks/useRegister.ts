@@ -18,17 +18,17 @@ export const useRegister = () => {
     });
 
     if (error) {
-      throw new Error(error.message); // გამოიტანეთ შეცდომა
+      throw new Error(error.message); 
     }
 
-    // აქ `signUpData` -ი შეიცავს ინფორმაციას მომხმარებლის შესახებ, მისი შემდგომი გამოყენება.
+
     const user = signUpData?.user;
 
     if (!user) {
       throw new Error("No user returned from sign up");
     }
 
-    // ახალი მომხმარებლის შესახებ ინფორმაციის დამატება (optional)
+
     const { error: profileError } = await supabase
       .from<Database['profiles']>('profiles')
       .insert([{  user_id: user.id }]);
