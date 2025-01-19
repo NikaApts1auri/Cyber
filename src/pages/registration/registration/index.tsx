@@ -1,3 +1,4 @@
+// src/pages/register/Register.tsx
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod'; 
@@ -20,7 +21,7 @@ interface FormData {
 }
 
 const Register: React.FC = () => {
-  const {
+ const {
     register,
     handleSubmit,
     formState: { errors },
@@ -32,7 +33,15 @@ const Register: React.FC = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (data: FormData) => {
-    await registerUser(data, () => navigate('/login'));
+    console.log(data); // ფორმის მონაცემები
+    console.log(errors); // შეცდომები
+    try {
+      await registerUser(data); // რეგისტრაციისთვის დავუძახებთ ჰუკს
+      navigate('/login'); // წარმატების შემდეგ გადავიტანთ login-ზე
+    } catch (error) {
+      console.error("Registration Error:", error.message);
+      alert("Error occurred during registration. Please try again.");
+    }
   };
 
   return (
@@ -47,19 +56,13 @@ const Register: React.FC = () => {
 
           <CardContent>
             <FormInput
-              label="Username"
-              type="text"
-              placeholder="Username"
-              register={register('username')}
-              error={errors.username?.message}
-            />
-            <FormInput
               label="Email"
-              type="text"
-              placeholder="Email"
-              register={register('email')}
+              type="email"
+              placeholder="Enter your email"
+              register={register("email")} 
               error={errors.email?.message}
             />
+
             <PasswordField
               label="Password"
               register={register}

@@ -14,6 +14,7 @@ import ProductsView from "./pages/products/view";
 import AboutView from "./pages/about/view";
 import ContactView from "./pages/contact/view";
 import { QueryClient, QueryClientProvider } from "react-query";
+import ProfileView from "./pages/profile/view";
 
 const queryClient = new QueryClient();
 
@@ -90,6 +91,16 @@ function App() {
                 element={
                   <Suspense fallback={<LoadingFallback />}>
                     <CartView />
+                  </Suspense>
+                }
+              />
+            </Route>
+            <Route path="profile" element={<Layout />}>
+              <Route
+                index
+                element={
+                  <Suspense fallback={<LoadingFallback />}>
+                    <ProfileView />
                   </Suspense>
                 }
               />

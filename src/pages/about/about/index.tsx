@@ -1,69 +1,66 @@
 
 export default function About() {
   return (
-    <div className="min-h-screen pt-[15rem] items-center bg-gray-50 py-10 px-6 md:px-20">
-      {/* Title Section */}
-      <section className="text-center mb-10">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-          ჩვენი ისტორია
-        </h1>
-        <p className="text-lg text-gray-600">
-          ჩვენ გთავაზობთ მაღალხარისხიან ტექნოლოგიურ პროდუქტებს, რომელიც
-          დააკმაყოფილებს თქვენი ყოველდღიური საჭიროებების ყველა ასპექტს.
-        </p>
-      </section>
-
-      {/* Mission Section */}
-      <section className="text-center mb-10">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-4">
-          ჩვენი მისია
-        </h2>
-        <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-          ჩვენი მიზანია მომხმარებლებს შევთავაზოთ უახლესი ტექნოლოგიები,
-          მაქსიმალური კომფორტი და ხარისხი. ამასთან, ვიქმნით უსაფრთხო და
-          საიმედო პლატფორმას, სადაც შეგიძლიათ შეიძინოთ უახლესი მოდელები,
-          რომლებიც ასრულებს ყველა თქვენს საჭიროებას.
-        </p>
-      </section>
-
-      {/* Product Categories Section */}
-      <section className="text-center mb-10">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-4">
-          ჩვენი პროდუქცია
-        </h2>
-        <p className="text-lg text-gray-600">
-          ჩვენ გვაქვს ფართო არჩევანი სხვადასხვა კატეგორიაში:
-        </p>
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white p-6 shadow-md rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">ტელეფონები</h3>
-            <p className="text-gray-600">ყველაზე ახალი მოდელები უახლესი ტექნოლოგიებით.</p>
-          </div>
-          <div className="bg-white p-6 shadow-md rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">ტაბლეტები</h3>
-            <p className="text-gray-600">მაღალი ეკრანის ხარისხი და მაღალი გამძლეობა.</p>
-          </div>
-          <div className="bg-white p-6 shadow-md rounded-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">სხვადასხვა ტექნიკა</h3>
-            <p className="text-gray-600">კომპიუტერები, აქსესუარები, ჭკვიანი საათები და სხვა.</p>
-          </div>
+    <div className="min-h-screen pt-20 items-center bg-gray-50 py-16 px-8 md:px-24 lg:px-40">
+    {/* Title Section */}
+    <section className="text-center mb-16">
+      <h1 className="text-5xl font-extrabold text-gray-900 mb-6">
+       Story
+      </h1>
+      <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
+        We offer high-quality technological products that meet all aspects of your daily needs.
+      </p>
+    </section>
+  
+    {/* Mission Section */}
+    <section className="text-center mb-16">
+      <h2 className="text-4xl font-semibold text-gray-900 mb-6">
+         Mission
+      </h2>
+      <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
+        Our goal is to provide customers with the latest technology, maximum comfort, and quality. Additionally, we create a secure and reliable platform where you can purchase the latest models that meet all your needs.
+      </p>
+    </section>
+  
+    {/* Product Categories Section */}
+    <section className="text-center mb-16">
+      <h2 className="text-4xl font-semibold text-gray-900 mb-6">
+         Products
+      </h2>
+      <p className="text-xl text-gray-700 leading-relaxed mb-8">
+        We have a wide selection in various categories:
+      </p>
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="bg-white p-8 shadow-lg rounded-lg">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Phones</h3>
+          <p className="text-gray-600 text-lg">The latest models with cutting-edge technology.</p>
         </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="text-center mb-10">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-4">დაგვიკავშირდით</h2>
-        <p className="text-lg text-gray-600">
-          თუ გაქვთ შეკითხვები ან გსურთ მეტი ინფორმაცია ჩვენი პროდუქციის შესახებ, გთხოვთ
-          დაგვიკავშირდეთ.
-        </p>
-        <a
-          href="mailto:info@techstore.com"
-          className="mt-4 inline-block bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700"
-        >
-          შეატყობინეთ მოგვიანებით
-        </a>
-      </section>
-    </div>
+        <div className="bg-white p-8 shadow-lg rounded-lg">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Tablets</h3>
+          <p className="text-gray-600 text-lg">High screen quality and durability.</p>
+        </div>
+        <div className="bg-white p-8 shadow-lg rounded-lg">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Other Tech</h3>
+          <p className="text-gray-600 text-lg">Computers, accessories, smartwatches, and more.</p>
+        </div>
+      </div>
+    </section>
+  
+    {/* Contact Section */}
+    <section className="text-center mb-16">
+      <h2 className="text-4xl font-semibold text-gray-900 mb-6">Contact Us</h2>
+      <p className="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+        If you have any questions or would like more information about our products, please feel free to contact us.
+      </p>
+      <a
+        href="mailto:info@techstore.com"
+        className="mt-6 inline-block bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 text-lg font-medium"
+      >
+        Notify Us Later
+      </a>
+    </section>
+  </div>
+  
+  
   );
 }
