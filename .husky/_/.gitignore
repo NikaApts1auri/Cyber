@@ -1,0 +1,2 @@
+npm install prettier --save-dev
+npm install lint-staged --save-dev

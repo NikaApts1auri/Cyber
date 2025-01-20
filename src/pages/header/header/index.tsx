@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import Burger from "../../../ui/burger";
+// import Modes from "../darkMode";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -69,6 +70,9 @@ export default function Header() {
       <div className="sm:hidden">
         <Burger />
       </div>
+      {/* <div>
+        <Modes/>
+      </div> */}
     </div>
   );
 }
