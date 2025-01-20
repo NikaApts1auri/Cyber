@@ -1,8 +1,12 @@
+import ProductList from "../../../api/requests/getProducts";
 
-export default function Home() {
+
+const Home: React.FC = () => {
   return (
-    <div>
-  <h1 className="text-red-500">asd</h1>
+    <div className="bg-gray-100">
+     <ProductList/>
     </div>
-  )
-}
+  );
+};
+
+export default Home;

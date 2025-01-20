@@ -8,7 +8,7 @@ import PasswordField from "../../../Form Components/PasswordField";
 import { useForm } from "react-hook-form";
 import FormInput from "../../../Form Components/FormInput";
 import { validationSchema } from "./validation";
-import { useLogin } from "../../../api/hooks/useLogin"; 
+import { useLogin } from "../../../api/hooks/useLogin"; // import useLogin hook
 
 export const mobileStylesForForms = `border-white sm:border-neutral-200 shadow-none sm:shadow-lg`;
 
@@ -17,7 +17,7 @@ type FormData = z.infer<typeof validationSchema>;
 const Login: React.FC = () => {
   const navigate = useNavigate();
 
-
+  // Use the custom useLogin hook here
   const { loginUser, isLoading } = useLogin();
 
   const {
@@ -31,7 +31,7 @@ const Login: React.FC = () => {
   const onSubmit = (data: FormData) => {
     console.log("Form Data:", data);
     loginUser(data, () => {
-      navigate("/"); // Navigate to home after successful login
+      navigate("/"); 
     });
   };
 

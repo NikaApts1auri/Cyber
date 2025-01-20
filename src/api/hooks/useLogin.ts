@@ -1,4 +1,3 @@
-// hooks/useLogin.ts
 import { supabase } from "../../supabase";
 import { useAtom } from "jotai";
 import { errorAtom } from "../../store/store";
@@ -18,7 +17,7 @@ export const useLogin = () => {
     const { identifier, password } = data;
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data: session, error } = await supabase.auth.signInWithPassword({
         email: identifier,
         password,
       });
@@ -30,10 +29,21 @@ export const useLogin = () => {
         return;
       }
 
-      // On success, update state and navigate
-      setIsAuthenticated(true);
-      toast.success("Logged in successfully");
-      onSuccess(); // Trigger the callback to navigate
+      // Access and Refresh Tokens
+      const { access_token, refresh_token } = session.session || {};
+
+      if (access_token && refresh_token) {
+        // Save tokens to localStorage
+        localStorage.setItem("accessToken", access_token);
+        localStorage.setItem("refreshToken", refresh_token);
+
+        setIsAuthenticated(true);
+        toast.success("Logged in successfully");
+        onSuccess();
+      } else {
+        setError("Login failed. Tokens not received.");
+        toast.error("Login failed. Tokens not received.");
+      }
     } catch (err) {
       console.error("Login Error:", err);
       setError("Something went wrong. Please try again.");
@@ -43,6 +53,6 @@ export const useLogin = () => {
 
   return {
     loginUser,
-    isLoading: false, // Supabase handles loading internally
+    isLoading: false,
   };
 };

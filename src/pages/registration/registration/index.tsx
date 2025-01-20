@@ -14,7 +14,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '../../../ui/card';
 import FormInput from '../../../Form Components/FormInput';
 
 interface FormData {
-  username: string;
+  // username: string;
   email: string;
   password: string;
   repeat_password: string;
@@ -33,16 +33,21 @@ const Register: React.FC = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (data: FormData) => {
-    console.log(data); // ფორმის მონაცემები
-    console.log(errors); // შეცდომები
     try {
-      await registerUser(data); // რეგისტრაციისთვის დავუძახებთ ჰუკს
-      navigate('/login'); // წარმატების შემდეგ გადავიტანთ login-ზე
+      const { email, password } = data;
+  
+     
+      await registerUser({ email, password }); 
+  
+      navigate('/login'); 
     } catch (error) {
       console.error("Registration Error:", error.message);
       alert("Error occurred during registration. Please try again.");
     }
   };
+  
+  
+  
 
   return (
     <div className="mt-10 flex items-center justify-center font-anek-devanagari sm:mt-28">

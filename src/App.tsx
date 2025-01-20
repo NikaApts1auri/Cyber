@@ -1,26 +1,28 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Suspense } from "react";
 import ProtectedRoute from "./guard/ProtectedRoute";
-// import PublicRoute from "./guard/PublicRoute";
 import LoadingFallback from "./LoadingFallBack";
 import Layout from "./layout/Layout";
-
-import NotFound from "./pages/404/notFound";
-import CartView from "./pages/cart/view";
-import LoginView from "./pages/login/view";
-import RegistrationView from "./pages/registration/view";
-import ProductDetailsView from "./pages/productDetails/view";
-import ProductsView from "./pages/products/view";
-import AboutView from "./pages/about/view";
-import ContactView from "./pages/contact/view";
 import { QueryClient, QueryClientProvider } from "react-query";
-import ProfileView from "./pages/profile/view";
+import React from "react";
 
 const queryClient = new QueryClient();
 
+// Lazy imports 
+const NotFound = React.lazy(() => import("./pages/404/notFound"));
+const CartView = React.lazy(() => import("./pages/cart/view"));
+const LoginView = React.lazy(() => import("./pages/login/view"));
+const RegistrationView = React.lazy(() => import("./pages/registration/view"));
+const ProductDetailsView = React.lazy(() => import("./pages/productDetails/view"));
+const ProductsView = React.lazy(() => import("./pages/products/view"));
+const AboutView = React.lazy(() => import("./pages/about/view"));
+const ContactView = React.lazy(() => import("./pages/contact/view"));
+const ProfileView = React.lazy(() => import("./pages/profile/view"));
+const HomeView = React.lazy(() => import("./pages/home/view"));
+
 function App() {
   return (
-<QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
           {/* Public routes */}
@@ -29,7 +31,7 @@ function App() {
               index
               element={
                 <Suspense fallback={<LoadingFallback />}>
-                  <ProductsView />
+                  <HomeView />
                 </Suspense>
               }
             />
@@ -49,7 +51,7 @@ function App() {
                 </Suspense>
               }
             />
-                <Route
+            <Route
               path="products"
               element={
                 <Suspense fallback={<LoadingFallback />}>
@@ -73,7 +75,7 @@ function App() {
                 </Suspense>
               }
             />
-             <Route
+            <Route
               path="contact"
               element={
                 <Suspense fallback={<LoadingFallback />}>
@@ -111,7 +113,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-      </QueryClientProvider>
+    </QueryClientProvider>
   );
 }
 

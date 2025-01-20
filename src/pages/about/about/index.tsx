@@ -53,7 +53,7 @@ export default function About() {
         If you have any questions or would like more information about our products, please feel free to contact us.
       </p>
       <a
-        href="mailto:info@techstore.com"
+        href="Cyber@gmail.com"
         className="mt-6 inline-block bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 text-lg font-medium"
       >
         Notify Us Later

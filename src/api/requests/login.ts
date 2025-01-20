@@ -10,7 +10,7 @@ interface LoginResponse {
 }
 
 export const loginUser = async (userData: {
-  identifier: string;
+  email: string;
   password: string;
 }): Promise<LoginResponse> => {
   try {

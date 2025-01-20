@@ -4,7 +4,6 @@ import { Database } from "../../supabase/supabase.types";
 interface RegisterData {
   email: string;
   password: string;
-
 }
 
 export const useRegister = () => {
@@ -13,7 +12,7 @@ export const useRegister = () => {
 
     // Supabase-ის რეგისტრაცია
     const { data: signUpData, error } = await supabase.auth.signUp({
-      email,
+      email, // შეცვალეთ identifier-ზე email
       password,
     });
 
@@ -21,17 +20,15 @@ export const useRegister = () => {
       throw new Error(error.message); 
     }
 
-
     const user = signUpData?.user;
 
     if (!user) {
       throw new Error("No user returned from sign up");
     }
 
-
     const { error: profileError } = await supabase
       .from<Database['profiles']>('profiles')
-      .insert([{  user_id: user.id }]);
+      .insert([{ user_id: user.id }]);
 
     if (profileError) {
       throw new Error(profileError.message);
@@ -40,7 +37,5 @@ export const useRegister = () => {
     return user;
   };
 
-  return {
-    registerUser,
-  };
+  return { registerUser };
 };
